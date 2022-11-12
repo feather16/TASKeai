@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const TodoApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class TodoApp extends StatelessWidget {
+  const TodoApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -25,6 +25,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        // other_task.id: (context) => other_task(),
+        // todo.id: (context) => todo(),
+        // timeline.id: (context) => timeline(),
+        // mypage.id: (context) => mypage(),
+      },
     );
   }
 }
