@@ -17,6 +17,7 @@ class task_edit extends StatelessWidget {
 
   bool remind = false;
   void Function(bool)? onChanged;
+  String taskTitle = "";
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +76,9 @@ class task_edit extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24,
                 ),
+                onChanged: (value) {
+                  taskTitle = value;
+                },
               ),
               Spacer(),
               TextField(
@@ -103,7 +107,11 @@ class task_edit extends StatelessWidget {
               ),
               Spacer(),
               TextButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  if(taskTitle != ""){
+                    todo.tasks.add(taskTitle)
+                  }
+                },
                 child: Text(
                   '作成',
                   style: TextStyle(
