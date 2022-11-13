@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 class timeline extends StatefulWidget {
   static const String id = 'timeline';
@@ -20,19 +21,18 @@ class _timeline extends State<timeline> {
         title: Text(widget.title),
         backgroundColor: const Color(0xFF273668),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        //currentIndex: ,
-        //onTap: _onItemTapped,
-        //labelStyle: TextStyle(color: /*ラベルの色*/,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home,color:Colors.white), label: 'ホーム',),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite,color:Colors.white), label: 'お気に入り'),
-          BottomNavigationBarItem(icon: Icon(Icons.notifications,color:Colors.white), label: 'お知らせ'),
-          BottomNavigationBarItem(icon: Icon(Icons.person,color:Colors.white), label: 'アカウント'),
+      bottomNavigationBar: ConvexAppBar(
+        items: [
+          TabItem(icon: Icons.home, title: 'Home'),
+          TabItem(icon: Icons.map, title: 'Discovery'),
+          TabItem(icon: Icons.add, title: 'Add'),
+          TabItem(icon: Icons.message, title: 'Message'),
+          TabItem(icon: Icons.people, title: 'Profile'),
         ],
-        type: BottomNavigationBarType.fixed,
         backgroundColor: const Color(0xFF273668),
+        onTap: (int i) => print('click index=$i'),
       ),
+
 
       body: SafeArea(
         child: SingleChildScrollView(
