@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:todo1/others_task.dart';
 
 class timeline extends StatefulWidget {
   static const String id = 'timeline';
@@ -110,7 +111,11 @@ class contentflow extends StatelessWidget {
                           const SizedBox(width: 8),
                           TextButton(
                             child: const Text('進捗状況'),
-                            onPressed: () {/* ... */},
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => others_task()
+                              ));
+                            },
                           ),
                           const SizedBox(width: 8),
                         ],
