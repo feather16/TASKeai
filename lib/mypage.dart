@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:todo1/todo.dart';
+import 'package:todo1/timeline.dart';
+import 'package:todo1/mypage.dart';
+import 'package:todo1/task_edit.dart';
+
 class mypage extends StatefulWidget {
   static const String id = 'mypage';
 
@@ -59,7 +64,28 @@ class _mypage extends State<mypage> {
           TabItem(icon: Icons.people, title: 'Profile'),
         ],
         backgroundColor: const Color(0xFF273668),
-        onTap: (int i) => print('click index=$i'),
+        onTap: (int i) => {
+          if(i == 0){
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => todo()
+            ))
+          }
+          else if(i == 1){
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => timeline(title: 'タイムライン')
+            ))
+          }
+          else if(i == 2){
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => task_edit()
+              ))
+            }
+          /*else if(i == 4){
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => mypage(title: 'マイページ')
+              ))
+            }*/
+        },
       ),
     );
   }
