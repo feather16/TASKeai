@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:todo1/setting.dart';
 import 'package:todo1/todo.dart';
 import 'package:todo1/timeline.dart';
 import 'package:todo1/mypage.dart';
@@ -28,7 +29,7 @@ class _mypage extends State<mypage> {
       body: Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
+            children: <Widget>[
               Align(
                 alignment: const Alignment(0, 1),
                 child: Image(
@@ -43,7 +44,11 @@ class _mypage extends State<mypage> {
               SizedBox(
                 width: double.infinity,
                 child:
-                OutlinedButton(onPressed: null, child: Text("通知・画面設定")),
+                OutlinedButton(onPressed: () => {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => setting()
+                  ))
+                }, child: Text("通知・画面設定")),
               ),
               SizedBox(
                 width: double.infinity,
