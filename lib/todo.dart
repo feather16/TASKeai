@@ -13,6 +13,8 @@ class todo extends StatelessWidget {
       home: HomeScreen(),
     );
   }
+
+  static List<String> tasks = [];
 }
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -21,8 +23,8 @@ class HomeScreen extends StatefulWidget {
 }
 class _HomeScreenState extends State<HomeScreen> {
   final _todos = List.generate(
-    3,
-        (index) => ToDo(),
+    todo.tasks.length,
+        (index) => ToDo(todo.tasks[index]),
   );
   @override
   Widget build(BuildContext context) {
@@ -70,11 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
               ),
-              title: TextFormField(
-                  style: _todos[index].checked == true
-                      ? const TextStyle(decoration: TextDecoration.lineThrough)
-                  : const TextStyle(color: Colors.black),
-            ),
+              title: Text(_todos[index].title),
+            
             );
           },
         ),
